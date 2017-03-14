@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Book Reviews</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="main container" style="margin-top:3vh;">
+			<a href="{% url 'book_review:logout' %}" class="pull-right" style="margin-left: 3vh;">Logout</a>
+			<a href="{% url 'book_review:new' %}" class="pull-right">Add Book and Review</a>
+			<h2>Welcome, {{user.first_name}}!</h2>
+
+			<div class="row" style="padding-top: 5vh;">
+				<div class="col-md-6">
+					<h1><strong>Recent Reviews</strong></h1>
+				</div>
+
+				<div class="col-md-6">
+					<h1><strong>Other Books with Reviews:</strong></h1>
+				</div>
+			</div>	
+
+			<div class="row">
+
+				<div class="col-md-6">
+					{%for review in reviews%}
+					<h3><a href="{%url 'book_review:show' book_id=review.book.id %}">{{review.book.title}}</a></h3>
+					<p>{{review.rating}}/5</p>
+					<p><a href="/">{{review.reviewer.first_name}}</a> says:  {{review.review}}</p>
+					
+					<p style="font-size: x-small;">
+						<em>Posted on {{review.created_at}}</em> 
+						<a href="{% url 'book_review:destroy' review_id=review.id %}">Delete</a>
+					</p>
+					{%endfor%}
+				</div>
+
+				<div class="col-md-6">
+					<div class='pull-right' style="width: 50vh; height: 20vh; border:1px solid black; overflow-y:auto; text-align: left; padding: 2vh;">
+						<a href="/">Harry Potter and the Sorcerer Stone</a>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>

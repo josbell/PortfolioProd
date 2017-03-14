@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Book Reviews</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="main container" style="margin-top:3vh;">
+			<div class="header">
+				<a href="{% url 'book_review:logout' %}" class="pull-right" style="margin-left: 3vh;">Logout</a>
+				<a href="{% url 'book_review:index' %}" class="pull-right">Home</a>
+			</div>
+			<h2>{{book.title}}</h2>
+			<p>{{book.author}}</p>
+
+			<div class="row" style="padding-top: 5vh">
+				<div class="col-md-6">
+					<h1><strong>Reviews</strong></h1>
+				</div>
+
+				<div class="col-md-6" >
+					<h3><strong>Add a Review:</strong></h3>
+				</div>
+			</div>	
+
+
+			<div class="row">
+				<div class="col-md-6">
+					{%for review in reviews%}
+					<hr style="border:1px solid grey">
+					<p>{{review.rating}}/5</p>
+					<p><a href="#">{{review.reviewer.first_name}}</a> says:  {{review.review}}</p>
+					
+					<p style="font-size: x-small;">
+						<em>Posted on {{review.created_at}}</em> 
+						<a href="{% url 'book_review:destroy' review_id=review.id %}">Delete</a>
+					</p>
+
+					{%endfor%}
+				</div>
+				<div class="col-md-6">
+					<form action="{%url 'book_review:add' %}" method="post" style="padding-left:5vh;">
+						{% csrf_token %}
+						<textarea class='form-control' rows="5" name='review' style=" border:1px solid black; overflow-y:auto;">
+						</textarea>
+						<input type="hidden" name="book_id" value="{{book.id}}">
+						<label class="pull-right">Rating:
+							<select name="rating" class="form-control">
+								<option value=1>1</option>
+								<option value=2>2</option>
+								<option value=3>3</option>
+								<option value=4>4</option>
+								<option value=5>5</option>
+							</select></label>
+							<br><br><br>
+							<button class="btn btn-default pull-right"  type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>

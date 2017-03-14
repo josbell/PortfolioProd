@@ -1,0 +1,329 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Latin Swag Dance Courses</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'dance_courses/css/style.css' %}">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage"><img id ='navLogo' src="{% static 'dance_courses/imgs/HandLogo.png' %}"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">HOW IT WORKS</a></li>
+        <li><a href="#services">DANCE STYLES</a></li>
+        <li><a href="#portfolio">CLASSES DEMO</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a id="registerLink">REGISTER</a></li>
+        <li><a id="loginLink">LOGIN</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- TODO: Refactor both modals into one and have script populate differences-->
+<!-- Register Modal -->
+  <div class="modal fade" id="registerModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="form-group">
+              <label for="confPsw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+              <input type="text" class="form-control" id="confPsw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Register</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<!-- Modal -->
+  <div class="modal fade" id="loginModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" action="{% url 'dance_courses:login' %}">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<div class="jumbotron text-center">
+  <h1>Latin Swag</h1> 
+  <p>We specialize in performing and teaching a variety of dance styles. Subscribe below to get updates.</p> 
+  <form>
+    <div class="input-group">
+      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <div class="input-group-btn">
+        <button type="button" class="btn btn-danger">Subscribe</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6">
+      <h2>HOW IT WORKS</h2><br><br>
+      <h4>LEARN DIRECTLY FROM LATIN SWAG</h4>
+      <p>Learn from Latin Swag from the comfort of your own home or anywhere else in the world. We break it down step by step so you're learning all the techniques and intentions at your own pace.</p><br><br>
+      <h4>NEVER MISS A THING</h4>
+      <p>You'll always have a clear view from the choreographer from either the front or back views so you'll be able to see every little detail.</p><br><br>
+      <h4>REVIEW AS MUCH AS YOU NEED</h4>
+      <p>Like any other skill, practice makes perfect. You can easily review each section as many times as you need before moving on so you'll never feel lost or overwhelmed.</p><br><br>
+      <br><button class="btn btn-default btn-lg">Sign up Now</button>
+      <br><br>
+    </div>
+    <div class="col-sm-6" style="padding: 10%">
+      <div class="thumbnail"><img class="img-rounded" src="{% static 'dance_courses/imgs/workshopImg.png' %}"></div>
+    </div>
+  </div>
+</div>
+<br>
+
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center bg-grey">
+  <h2>DANCE STYLES</h2>
+  <h4>What dance styles we offer:</h4>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <h4>DANCEHALL</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/_pVXX-kNGng" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-4">
+      <h4>SALSA</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/sdrJqmE6MrM" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-4">
+      <h4>BACHATA</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/2a7ibqfQJz0?list=PLVcEX82fXTLUKYq3m4HarHsDWXghQzQgJ" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center">
+  <h2>Class Demos</h2><br>
+  <h4>Try out these free classes on us!</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <h4>DANCEHALL</h4>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/_pVXX-kNGng" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <h4>SALSA</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/sdrJqmE6MrM" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <h4>BACHATA</h4>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2a7ibqfQJz0?list=PLVcEX82fXTLUKYq3m4HarHsDWXghQzQgJ" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>What our customers say</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
+      </div>
+      <div class="item">
+        <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Container (Pricing Section) -->
+<div id="pricing" class="container-fluid bg-grey">
+  <div class="text-center">
+    <h2>Pricing</h2>
+    <h4>Choose a payment plan that works for you</h4>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Single Class</h1>
+        </div>
+        <div class="panel-body">
+          <p>Permanent access to class purchased</p>
+          <p>Donwload video file</p>
+          <p>Post comments and questions on class</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$10</h3>
+          <h4>per class</h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Monthly</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Access while subscribed</strong> Lorem</p>
+          <p><strong>Most Popular</strong> Ipsum</p>
+          <p><strong>Post Comments and Questions</strong> Dolor</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$25</h3>
+          <h4>per month</h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Yearly</h1>
+        </div>
+        <div class="panel-body">
+          <p><strong>Access for a full year</strong> Lorem</p>
+          <p><strong>2 free months</strong> Ipsum</p>
+          <p><strong>Post Comments and Questions</strong> Dolor</p>
+        </div>
+        <div class="panel-footer">
+          <h3>$250</h3>
+          <h4>per year</h4>
+          <button class="btn btn-lg">Sign Up</button>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>
+<br><br><br>
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">CONTACT</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> latinswagatl@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</footer>
+<script src="{% static 'dance_courses/js/script.js' %}"></script>
+</body>
+</html>
+

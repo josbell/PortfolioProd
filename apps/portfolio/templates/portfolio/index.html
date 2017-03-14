@@ -1,0 +1,209 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+	<head>
+    	<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/style.css' %}">
+	</head>
+	<body>
+		<div id="myCarousel" class="carousel slide">
+			<div class="header">
+				<div class="container">
+					<div class="dropdown">
+						<img src="https://s3.amazonaws.com/codecademy-content/projects/2/milford-school/menu.svg" width="30px">
+						<ul class="dropdown-menu">
+							<li><a href="#projects">Projects</a><li>
+							<li><a href="#">About Me</a></li>
+							<li><a href="#">Contact Info</a></li>
+						</ul>
+					</div>
+					<h1>Josbell Quiros</h1>
+				</div>
+			</div>
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li class="item1 active"></li>
+				<li class="item2"></li>
+			</ol>
+				
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img src="https://images.unsplash.com/photo-1468421870903-4df1664ac249?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=bq31l0jqaju-my-life-through-a-lens.jpg&s=26383a645c2c771628e939a48a0247f3"/>
+				</div>
+				<div class="item">
+					<img src="https://images.unsplash.com/photo-1456244797041-024e2abaf31c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=bt63a-_nkhm-kelly-brito.jpg&s=8b4d0774e69ab3be7a5bca84b159d8c6">
+				</div>
+			</div>
+				
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+				<span class = "glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<div class="divider">
+		</div>
+		<div class = "main" id="projects">
+			<div class="container">
+				<div class="supporting">
+					<ul class="nav nav-pills">
+  						<li role="presentation" class="all active"><a href="#">All</a></li>
+  						<li role="presentation" class="SQLite3"><a href="#">SQLite3</a></li>
+  						<li role="presentation" class="authorization"><a href="#">Authorization</a></li>
+  						<li role="presentation" class="ajax"><a href="#">Ajax</a></li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-md-4" id="left">
+						<a class="thumbnail">
+							<img class="selected SQLite3 authorization project1" src="{% static 'portfolio/img/books.jpg' %}"/>
+						</a>
+
+						  <!-- Modal -->
+					  	<div class="modal fade" id="project1Modal" role="dialog">
+					    	<div class="modal-dialog">
+					    
+						      <!-- Modal content-->
+						    	<div class="modal-content">
+									<div class="modal-header">
+						          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+						          		<h4>Book Reviews</h4>
+						        	</div>
+							        <div class="modal-body">
+							        	<p style="margin:0">Review Books and check out other reviews</p>
+							        	<h3>Tech Used:</h3>
+							        	<ul>
+							        		<li>Django</li>
+							        		<li>SQLite3</li>
+							        		<li>Python</li>
+							        	</ul>
+							        </div>
+							        <div class="modal-footer">
+							          <button class="btn btn-default pull-right"><a href="{%url 'login_reg:index' %}">Visit Project</a></button>
+							        </div>
+						      </div>
+					      
+					    	</div>
+					  	</div>
+
+					</div>
+
+					<div class="col-md-4" id="center">
+						<a class="thumbnail">
+							<img class="selected angularJS project2" src="{% static 'portfolio/img/ninja.jpg' %}"/>
+						</a>
+
+						  <!-- Modal -->
+					  <div class="modal fade" id="project2Modal" role="dialog">
+					    <div class="modal-dialog">
+					    
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4>Ninja Gold</h4>
+					        </div>
+					        <div class="modal-body">
+					        	<p style="margin:0">Make money as a Ninja</p>
+					        	<h3>Tech Used:</h3>
+					        	<ul>
+					        		<li>Django</li>
+					        		<li>Python</li>
+					        	</ul>
+					        </div>
+					        <div class="modal-footer">
+					          <button class="btn btn-default pull-right"><a href="{%url 'ninja_gold:index' %}">Visit Project</a></button>
+					        </div>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+
+					<div class="col-md-4" id="right">
+						<a class="thumbnail" >
+							<img class="selected javascript authorization project3" src="{% static 'portfolio/img/dance.jpg' %}"/>
+						</a>
+
+						  <!-- Modal -->
+					  <div class="modal fade" id="project3Modal" role="dialog">
+					    <div class="modal-dialog">
+					    
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4>Dance Courses</h4>
+					        </div>
+					        <div class="modal-body">
+					        	<p style="margin:0">Subscribe to online dance classes</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button class="btn btn-default pull-right"><a href="{%url 'dance_courses:index' %}">Visit Project</a></button>
+					        </div>
+					      </div>
+					      
+					    </div>
+					  </div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4"></div>
+					<div class="col-md-4">						
+						<a class="thumbnail">
+							<img class="selected SQLite3 authorization ajax project4" src="{% static 'portfolio/img/notes.jpg' %}"/>
+						</a>
+						  <!-- Modal -->
+					  	<div class="modal fade" id="project4Modal" role="dialog">
+					    	<div class="modal-dialog">
+					    
+						      	<!-- Modal content-->
+						    	<div class="modal-content">
+						        	<div class="modal-header">
+						          		<button type="button" class="close" data-dismiss="modal">&times;</button>
+						          		<h4>My Notes</h4>
+						        	</div>
+						        	<div class="modal-body">
+						        		<p style="margin:0">Create your own account, login, and create/delete notes</p>
+						        		<h3>Tech Used:</h3>
+							        	<ul>
+							        		<li>Django</li>
+							        		<li>SQLite3</li>
+							        		<li>Python</li>
+							        		<li>Ajax</li>
+							        		<li>Django Forms/Auth</li>
+							        	</ul>
+						        	</div>
+							        <div class="modal-footer">
+							          <button class="btn btn-default pull-right"><a href="{%url 'notes_app:loginUsers' %}">Visit Project</a></button>
+							        </div>
+						      	</div>
+					    	</div>
+						</div></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="container">
+				<ul>
+					<li>email</li>
+					<li>linkedin</li>
+				</ul>
+			</div>
+		</div>
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+	</body>
+</html>

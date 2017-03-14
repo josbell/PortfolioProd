@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login/Registration</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="main" style="margin:0 auto;">
+			<div class="container" style="max-width: 30vh;">
+				<h1>Registration</h1>
+				<form action="{% url 'login_reg:addUser' %}" method="post">
+				{% csrf_token %}
+					<div class="form-group">
+						<label for="first_name">First Name: <input class="form-control" type="text" name="first_name"></label><br>
+						{%if messages%}
+						{%for message in messages%}
+						{%if message.message == "first_name"%}
+						<small class="form-text text-muted" style="color: red;">First Name required with no fewer than 2 characters. Letters only.</small><br>
+						{%endif%}
+						{%endfor%}
+						{%endif%}
+						<br>
+						<label for="last_name">Last Name: <input class="form-control" type="text" name="last_name"></label><br>
+						{%if messages%}
+						{%for message in messages%}
+						{%if message.message == 'last_name'%}
+						<small class="form-text text-muted" style="color: red;">Last Name required with no fewer than 2 characters. Letters only.</small><br>
+						{%endif%}
+						{%endfor%}
+						{%endif%}
+						<br>
+						<label for="email">Email: <input class="form-control" type="email" name="email"></label><br>
+						{%if messages%}
+						{%for message in messages%}
+						{%if message.message ==  'email'%}
+						<small class="form-text text-muted" style="color: red;">Invalid Email</small><br>
+						{%endif%}
+						{%endfor%}
+						{%endif%}
+						<br>
+						<label for="password">Password: <input  class="form-control" type="password" name="password"></label><br>
+						{%if messages%}
+						{%for message in messages%}
+						{%if message.message ==  'password'%}
+						<small class="form-text text-muted" style="color: red;">Password must be no fewer than 8 characters in length and must match Password Confirmation</small><br>
+						{%endif%}
+						{%endfor%}
+						{%endif%}
+						<br>
+						<label for="confirm_pw">Confirm pw: <input class="form-control" type="password" name="confirm_pw"></label><br>
+						<button class="btn btn-default" type="submit">Register</button>
+					</div>
+				</form>
+			</div>
+			<div class="container login" style="margin-top:5vh; max-width: 30vh;">
+				<form action="{% url 'login_reg:login' %}" method="post">
+				{% csrf_token %}
+					<h1>Login</h1>
+					<div class="form-group">
+						{%if messages%}
+						{%for message in messages%}
+						{%if message.message ==  'login_failed'%}
+						<small class="form-text text-muted" style="color: red;">Invalid Email Password Combination.</small><br>
+						{%endif%}
+						{%endfor%}
+						{%endif%}
+						<label for="first_name">Email: <input class="form-control" type="text" name="email"></label><br>
+						<label for="password">Password: <input class="form-control" type="password" name="password"></label><br>
+						<button class="btn btn-default" type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

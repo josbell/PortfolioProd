@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ninja Gold</title>
+		{% load staticfiles %}
+		<link rel="stylesheet" href="{%static 'ninja_gold_app/css/style.css'%}" media="screen" title="no title"  charset="utf-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class='container'>
+			<h3>Your Gold <span class="label label-default">{{request.session.balance}}</span></h3>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class='well'>
+							<h2>Farm</h2>
+							<p>(earns 10-20 gold)</p>
+							<form action="{% url 'ninja_gold:process' locn='farm' %}" method="post">
+								{% csrf_token %}
+								<input type="submit" name="farm" value="Find Gold">
+							</form>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class='well'>
+							<h2>Cave</h2>
+							<p>(earns 5-10 gold)</p>
+							<form action="{% url 'ninja_gold:process' locn='cave' %}"  method="post">
+								{% csrf_token %}
+								<input type="submit" value="Find Gold">
+							</form>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class='well'>
+							<h2>House</h2>
+							<p>(earns 2-5 gold)</p>
+							<form action="{% url 'ninja_gold:process' locn='house' %}"  method="post">
+								{% csrf_token %}
+								<input type="submit" name="house" value="Find Gold">
+							</form>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class='well'>
+							<h2>Casino</h2>
+							<p>(earns 0-50 gold)</p>
+							<form action="{% url 'ninja_gold:process' locn='casino' %}"  method="post">
+								{% csrf_token %}
+								<input type="submit" name="casino" value="Find Gold">
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class='row activities'>
+					<div class="col-md-12">
+						<h4>Activities:</h4>
+						<div id="log" class="well">
+						{%for activity in request.session.activity%}
+								{%if activity|slice:":7" == "Entered"%}
+									<p style='color:red;'>{{activity}}</p>
+								{%else%}
+									<p style='color:green;'>{{activity}}</p>
+								{%endif%}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

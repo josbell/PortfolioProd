@@ -1,0 +1,21 @@
+.row{
+	margin-top: 10%;
+}
+
+.well{
+	text-align: center;
+	padding:20%;
+}
+
+#log{
+	overflow-y: scroll;
+	display: inline-block;
+	text-align:left;
+	height: 200px;
+	width: 100%;
+	padding:2%;
+}
+
+
+
+

@@ -1,0 +1,14 @@
+			<div class="notes">
+			{%for note in notes%}
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"">
+					<div class='note'>
+						<h4>{{note.title}}</h4>
+						<p>{{note.text}}</p>
+					</div>
+				</div>
+				<div class="col-md-4"><a href="{% url 'notes_app:destroy' id=note.id %}">Delete</a></div>
+			</div><br>
+			{%endfor%}
+			</div>
