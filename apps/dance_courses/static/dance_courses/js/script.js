@@ -45,5 +45,57 @@ $(document).ready(function(){
         }
     });
   });
+
+  //Ajax call
+
+  $('#loginForm').submit(function(e){
+    console.log('made it to loginForm event handler')
+    e.preventDefault()
+
+    $.ajax({
+        url: '/dance_courses/loginUsers/',
+        method: 'post',
+        data: $(this).serialize(),
+        success: function(serverResponse){
+          window.location.replace('/dance_courses/showUserCourses');
+
+        },
+        error: function(jqxhr){
+          if(jqxhr.status == 403){
+            $('#loginErrorMsg').text(jqxhr.responseText);
+          }
+          else{
+            console.log(jqxhr.statusCode().status);
+            $('#loginErrorMsg').text('Our systems our down temporarily, please try again later');
+          }
+        }
+    })
+  })
+
+  $('#signupForm').submit(function(e){
+    console.log('made it to signupForm event handler')
+    e.preventDefault()
+
+    $.ajax({
+        url: '/dance_courses/createusers/',
+        method: 'post',
+        data: $(this).serialize(),
+        success: function(serverResponse){
+          window.location.replace('/dance_courses/showUserCourses');
+
+        },
+        error: function(jqxhr){
+          if(jqxhr.status == 403){
+            $('#registerErrorMsg').text(jqxhr.responseText);
+          }
+          else{
+            console.log(jqxhr.statusCode().status);
+            $('#registerErrorMsg').text('Our systems our down temporarily, please try again later');
+          }
+        }
+    })
+  })
+
+
 })
 

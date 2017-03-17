@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>My Dance Tutorials</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,9 +15,10 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
     <!-- TODO: Add user profile showing user stats-->
-      <h4>John's Classes</h4>
-      <br>
-      <!-- TODO: Add nested collapsible panels-->
+      <h4>{{request.user.get_short_name}}'s Classes</h4>
+      <a href="{% url 'dance_courses:logoutUsers' %}">Logout</a>
+      <br><br>
+      
       <div class="panel-group">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -74,6 +75,7 @@
           </button>
         </span>
       </div>
+
     </div>
     <!-- Course Instance Begins-->
     <div class="col-sm-9">

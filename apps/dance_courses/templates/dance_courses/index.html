@@ -11,6 +11,8 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+  <script src="{% static 'dance_courses/js/registerForm.js' %}"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'dance_courses/css/style.css' %}">
 </head>
 
@@ -52,18 +54,28 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <p id="registerErrorMsg"></p>
+          <form role="form" class='' method="post" id='signupForm'>
+          {%csrf_token%}
             <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <label for="firstName"><span class="glyphicon glyphicon-user"></span> First Name</label>
+              <input type="text" class="form-control" name='firstname' id="firstname" placeholder="Enter first name">
+            </div>
+            <div class="form-group">
+              <label for="lastName"><span class="glyphicon glyphicon-user"></span> Last Name</label>
+              <input type="text" class="form-control" name='lastname' id="lastname" placeholder="Enter last name">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+              <input type="email" class="form-control" name='username' id="username" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
             </div>
             <div class="form-group">
               <label for="confPsw"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
-              <input type="text" class="form-control" id="confPsw" placeholder="Enter password">
+              <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Enter password">
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
@@ -90,14 +102,16 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form" action="{% url 'dance_courses:login' %}">
+          <p id="loginErrorMsg"></p>
+          <form role="form" id='loginForm' method="post">
+          {%csrf_token%}
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <input type="email" class="form-control" minlength="3" name='username' id="loginUsrname" placeholder="Enter email" requirec>
             </div>
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input type="password" class="form-control" minlength="3" name='password' id="loginPsw" placeholder="Enter password" required>
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
@@ -118,15 +132,7 @@
 
 <div class="jumbotron text-center">
   <h1>Latin Swag</h1> 
-  <p>We specialize in performing and teaching a variety of dance styles. Subscribe below to get updates.</p> 
-  <form>
-    <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Subscribe</button>
-      </div>
-    </div>
-  </form>
+  <p>We specialize in performing and teaching a variety of dance styles.
 </div>
 
 <!-- Container (About Section) -->
@@ -323,7 +329,11 @@
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
 </footer>
+<script>
+  $('#loginForm').validate();
+</script>
 <script src="{% static 'dance_courses/js/script.js' %}"></script>
+
 </body>
 </html>
 

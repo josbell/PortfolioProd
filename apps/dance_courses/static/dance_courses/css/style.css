@@ -147,6 +147,10 @@
   .modal-footer {
       background-color: #f9f9f9;}
 
+  #loginErrorMsg{
+    color: red;
+  }
+
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
@@ -160,6 +164,10 @@
       animation-duration: 1s;
       -webkit-animation-duration: 1s;
       visibility: visible;
+  }
+
+  .hidden{
+    display: none;
   }
   @keyframes slide {
     0% {

@@ -1,0 +1,19 @@
+Authenticate user registration:
+
+ User's name should be longer than 2 characters
+ Username/Email should be in email format
+ User should not already exist
+ 
+ ☐ Add First Name, Last Name to Registration
+ ☐ Validate Email format through bootstrap
+ ☐ Validate name/existing username through ajax call in view
+
+Login:
+  ☐ Login view and redirect to home page
+
+Authenticate login:
+
+  "invalid user/password combination" if username or password is incorrect
+
+  ☐ Ajax call to login and if unsuccessful display "invalid user/password combination"
+  ☐ Handle validation in login view 

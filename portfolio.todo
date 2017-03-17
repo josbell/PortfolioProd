@@ -1,2 +1,18 @@
 MVP Objectives:
   ☐ Display current site in django framework and deploy
+
+Functionality:
+  ☐ About me section
+  ☐ Contact info section
+
+
+
+
+
+
+  Project Features
+  authoritzation
+  forms submission 
+  ajax submission
+  class based views
+  bootstrap
