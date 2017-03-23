@@ -6,6 +6,38 @@
       background-color: #f1f1f1;
       height: 100%;
     }
+
+
+  .panel-group.child{
+    margin:0;
+  }
+
+
+  .list-group{
+    margin:0;
+  }
+
+  .panel-body.child{
+    padding:0;
+  }
+
+  .list-group-item.submit a, .ajaxLink a{
+    cursor:pointer; 
+  }
+
+  .list-group-item.disabled a{
+    color:grey;  
+  }
+
+  .list-group-item.disabled a:hover{
+    text-decoration:none;
+    cursor:not-allowed;  
+  }
+
+  .badge{
+    margin-right: 1vh;
+  }
+
     
     /* Set black background color, white text and some padding */
     footer {

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+
     $("#loginLink").click(function(){
         if ($('#registerModal').hasClass('in')){
           $("#registerModal").modal('hide');
@@ -6,7 +8,7 @@ $(document).ready(function(){
         $("#loginModal").modal();
     });
 
-    $("#registerLink").click(function(){
+    $(".registerLink").click(function(){
         if ($('#loginModal').hasClass('in')){
           $("#loginModal").modal('hide');
         }//end if

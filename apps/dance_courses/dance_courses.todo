@@ -1,19 +1,56 @@
+
+    ☐ Connect Sign Up buttons on home page
+    ☐ Connect Sign Up link on Login Screen 
+    ☐ Charge users for subscribing 
+    ☐ Create User Profile
+    ☐ Display time with User Timezone
+    ☐ Load Comments separately from Video (Refactor Using Django Template Block?)
+    ☐ Search classes by name
+    ☐ Capture when user has finished watching video and store in user profile
+    ☐ reset password functionality
+    ☐ Connect Contact Form to send email to latin swag
+      Youtube API info https://developers.google.com/youtube/iframe_api_reference#Requirements
+
+
 Authenticate user registration:
 
  User's name should be longer than 2 characters
  Username/Email should be in email format
  User should not already exist
  
- ☐ Add First Name, Last Name to Registration
- ☐ Validate Email format through bootstrap
- ☐ Validate name/existing username through ajax call in view
+ ✔ Add First Name, Last Name to Registration @done (17-03-16 13:34)
+ ✔ Validate Email format through bootstrap @done (17-03-16 14:37)
+ ✔ Validate name/existing username through ajax call in view @done (17-03-17 00:39)
 
 Login:
-  ☐ Login view and redirect to home page
+  ✔ Login view and redirect to home page @done (17-03-16 15:17)
 
 Authenticate login:
 
   "invalid user/password combination" if username or password is incorrect
 
-  ☐ Ajax call to login and if unsuccessful display "invalid user/password combination"
-  ☐ Handle validation in login view 
+  ✔ Ajax call to login and if unsuccessful display "invalid user/password combination" @done (17-03-16 19:04)
+  ✔ Handle validation in login view @done (17-03-16 19:04)
+
+  CRUD Course Resources:
+    User should be able to sign up for and drop courses
+    When User logs in all their courses should be populated
+    When User selects a course the video should be displayed in Detail View
+
+    ✔ Create Course Model @done (17-03-20 19:23)
+    ✔ Display enrolled courses @done (17-03-21 02:59)
+    ✔ Associate Course with User in UI (subscribe to classes) @done (17-03-22 00:09)
+    ✔ Subscription Page @done (17-03-22 00:09)
+    ✔ Dissasociate Course with User in UI (unsubscribe) @done (17-03-22 00:09)
+    ✔ Show Video when course is selected @done (17-03-21 03:02)
+
+   CRUD Comment Resources:
+
+    User should be able to post about video 
+    When user selects video all posts and comments should be seen in reverse chronological order (newest first)
+    Posts and comments should have first name of user, timestmap and users should be able to comment on posts
+    Users should be able to delete their own Posts and comments
+
+    ✔ Create Comment Model @done (17-03-22 01:06)
+    ✔ CRUD operations on Comments @done (17-03-22 19:20)
+    ✔ display comments on template @done (17-03-22 18:55)

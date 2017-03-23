@@ -1,0 +1,32 @@
+      <hr>
+      <h2>{{danceClass.name}}</h2>
+      <iframe width="560" height="315" src="{{danceClass.url}}" frameborder="0" allowfullscreen></iframe>
+      <h4>Leave a Comment:</h4>
+      <form role="form" id='commentForm'>
+      {%csrf_token%}
+        <div class="form-group">
+          <textarea class="form-control" rows="3" name='text' required></textarea>
+          <input type="hidden" name="classId" value="{{danceClass.id}}">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+
+      <!-- Comments Instance Begins-->
+      <br><br>
+      <p><span class="badge">{{comments.count}}</span> Comments:</p><br>
+      <div class="row">
+        {%for comment in comments%}
+        <div class="col-sm-1 text-center">
+        </div>
+        <div class="col-sm-11">
+          <h4>{{request.user.get_short_name}} <small>{{comment.created_at | date}}</small></h4>
+          <p>{{comment.text}}</p>
+          {%if request.user == comment.user%}
+          <a class='deleteAnchor' href='#' id='{{comment.id}}'>delete</a>
+          {%endif%}
+          <br><br>
+
+        </div>
+        {%endfor%}
+      </div> 
+      <!-- Comments Instance Ends--> 
