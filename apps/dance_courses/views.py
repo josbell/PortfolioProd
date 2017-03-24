@@ -63,7 +63,8 @@ def createUsers(request):
 		return HttpResponse("Existing account with this email", status=403)
 	else:
 		user = User.objects.create_user(first_name=request.POST['firstname'], last_name=request.POST['lastname'], username = request.POST['username'], email=request.POST['username'], password=request.POST['password'])
-	
+		subscription = Subscription.objects.create(name = user.first_name, user = user)
+
 		if user is not None:
 			user.save()
 			print 'user  saved'

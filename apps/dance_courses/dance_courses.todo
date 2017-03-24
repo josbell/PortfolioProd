@@ -1,7 +1,9 @@
 
-    ☐ Connect Sign Up buttons on home page
-    ☐ Connect Sign Up link on Login Screen 
+    ✔ Connect Sign Up buttons on home page @done (17-03-22 22:21)
+    ✔ Connect Sign Up link on Login Screen @done (17-03-22 22:22)
+    ☐ Refactor so that menu does not need to refresh when subscribing
     ☐ Charge users for subscribing 
+    ✔ New User Issue @done (17-03-22 23:00)
     ☐ Create User Profile
     ☐ Display time with User Timezone
     ☐ Load Comments separately from Video (Refactor Using Django Template Block?)
