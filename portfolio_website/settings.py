@@ -32,8 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.dance_courses',
-    'apps.notes_app',
-    'apps.ninja_gold_app',
     'apps.login_reg_app',
     'apps.book_review',
     'apps.portfolio',

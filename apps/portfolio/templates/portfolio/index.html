@@ -20,8 +20,6 @@
 						<img src="https://s3.amazonaws.com/codecademy-content/projects/2/milford-school/menu.svg" width="30px">
 						<ul class="dropdown-menu">
 							<li><a href="#projects">Projects</a><li>
-							<li><a href="#">About Me</a></li>
-							<li><a href="#">Contact Info</a></li>
 						</ul>
 					</div>
 					<h1>Josbell Quiros</h1>
@@ -66,6 +64,36 @@
 					</ul>
 				</div>
 				<div class="row">
+
+
+					<div class="col-md-4" id="right">
+						<a class="thumbnail" >
+							<img class="selected SQLite3 javascript authorization ajax project3" src="{% static 'portfolio/img/dance.jpg' %}"/>
+						</a>
+
+						  <!-- Modal -->
+					  <div class="modal fade" id="project3Modal" role="dialog">
+					    <div class="modal-dialog">
+					    
+					      <!-- Modal content-->
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal">&times;</button>
+					          <h4>Dance Courses</h4>
+					        </div>
+					        <div class="modal-body">
+					        	<p style="margin:0">Subscribe to online dance classes</p>
+					        </div>
+					        <div class="modal-footer">
+					          <button class="btn btn-default pull-right"><a href="{%url 'dance_courses:index' %}">Visit Project</a></button>
+					        </div>
+					      </div>
+					      
+					    </div>
+					  </div>
+					  
+					</div>
+
 					<div class="col-md-4" id="left">
 						<a class="thumbnail">
 							<img class="selected SQLite3 authorization project1" src="{% static 'portfolio/img/books.jpg' %}"/>
@@ -99,108 +127,14 @@
 					  	</div>
 
 					</div>
-
-					<div class="col-md-4" id="center">
-						<a class="thumbnail">
-							<img class="selected angularJS project2" src="{% static 'portfolio/img/ninja.jpg' %}"/>
-						</a>
-
-						  <!-- Modal -->
-					  <div class="modal fade" id="project2Modal" role="dialog">
-					    <div class="modal-dialog">
-					    
-					      <!-- Modal content-->
-					      <div class="modal-content">
-					        <div class="modal-header">
-					          <button type="button" class="close" data-dismiss="modal">&times;</button>
-					          <h4>Ninja Gold</h4>
-					        </div>
-					        <div class="modal-body">
-					        	<p style="margin:0">Make money as a Ninja</p>
-					        	<h3>Tech Used:</h3>
-					        	<ul>
-					        		<li>Django</li>
-					        		<li>Python</li>
-					        	</ul>
-					        </div>
-					        <div class="modal-footer">
-					          <button class="btn btn-default pull-right"><a href="{%url 'ninja_gold:index' %}">Visit Project</a></button>
-					        </div>
-					      </div>
-					      
-					    </div>
-					  </div>
-					</div>
-
-					<div class="col-md-4" id="right">
-						<a class="thumbnail" >
-							<img class="selected javascript authorization project3" src="{% static 'portfolio/img/dance.jpg' %}"/>
-						</a>
-
-						  <!-- Modal -->
-					  <div class="modal fade" id="project3Modal" role="dialog">
-					    <div class="modal-dialog">
-					    
-					      <!-- Modal content-->
-					      <div class="modal-content">
-					        <div class="modal-header">
-					          <button type="button" class="close" data-dismiss="modal">&times;</button>
-					          <h4>Dance Courses</h4>
-					        </div>
-					        <div class="modal-body">
-					        	<p style="margin:0">Subscribe to online dance classes</p>
-					        </div>
-					        <div class="modal-footer">
-					          <button class="btn btn-default pull-right"><a href="{%url 'dance_courses:index' %}">Visit Project</a></button>
-					        </div>
-					      </div>
-					      
-					    </div>
-					  </div>
-					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4"></div>
-					<div class="col-md-4"></div>
-					<div class="col-md-4">						
-						<a class="thumbnail">
-							<img class="selected SQLite3 authorization ajax project4" src="{% static 'portfolio/img/notes.jpg' %}"/>
-						</a>
-						  <!-- Modal -->
-					  	<div class="modal fade" id="project4Modal" role="dialog">
-					    	<div class="modal-dialog">
-					    
-						      	<!-- Modal content-->
-						    	<div class="modal-content">
-						        	<div class="modal-header">
-						          		<button type="button" class="close" data-dismiss="modal">&times;</button>
-						          		<h4>My Notes</h4>
-						        	</div>
-						        	<div class="modal-body">
-						        		<p style="margin:0">Create your own account, login, and create/delete notes</p>
-						        		<h3>Tech Used:</h3>
-							        	<ul>
-							        		<li>Django</li>
-							        		<li>SQLite3</li>
-							        		<li>Python</li>
-							        		<li>Ajax</li>
-							        		<li>Django Forms/Auth</li>
-							        	</ul>
-						        	</div>
-							        <div class="modal-footer">
-							          <button class="btn btn-default pull-right"><a href="{%url 'notes_app:loginUsers' %}">Visit Project</a></button>
-							        </div>
-						      	</div>
-					    	</div>
-						</div></div>
-				</div>
+
 			</div>
 		</div>
 		<div class="footer">
 			<div class="container">
 				<ul>
-					<li>email</li>
-					<li>linkedin</li>
+					<li><a href="https://www.linkedin.com/in/josbell-quiros-6b7ba14a/">linkedin</a></li>
 				</ul>
 			</div>
 		</div>
