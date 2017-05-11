@@ -1,0 +1,171 @@
+body, html{
+	margin: 0;
+	padding: 0;
+	background:#6C6B72;
+}
+
+.header{
+	background-color:rgba(0,0,0,0.8);
+	padding: 10px 0;
+}
+
+
+.header h1 {
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0 0 0 5px
+}
+
+.dropdown{
+	position:relative;
+	display:inline;
+	cursor:pointer;
+}
+
+.dropdown-menu {
+  border-radius:0px; 
+  box-shadow:none; 
+  border:none;
+  min-width: 200px;
+  top: 32px;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dropdown-menu li a {
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+h1, h2, p, a {
+  font-family: 'Helvetica Neue Thin', 'HelveticaNeue-Thin', 'helvetica neue', helvetica, arial, 'lucida grande', sans-serif;
+}
+
+p {
+  font-size: 26px;
+  font-weight: 200;  
+  margin-bottom: 40px;
+}
+
+
+.header .container .row .col-md-6{
+	padding:20px 0px;
+}
+
+.header h1{
+	margin:0;
+	color:white;
+}
+
+.carousel-inner{
+	height:95vh;
+}
+
+.carousel-inner{
+  width:100%;
+  max-height: 95vh;
+}
+
+.carousel-inner .item img {
+  width: 100%;
+  height:95vh;
+}
+
+.divider{
+	height:5px;
+	background: black;
+}
+
+.carousel-control{
+	margin:50px 0;
+}
+
+.main{
+	min-height: 100vh;
+	background-color:white;
+	/*position:relative;
+	margin:auto 0;*/
+}
+
+/*
+.main .container{
+	position: absolute;
+  	top: 40%;
+  	transform: translateY(-50%);
+  	padding:20%;
+  	width:100%;
+}
+*/
+
+
+.main .container .row{
+	padding:60px 0;
+	height: 5vh;
+}
+
+
+.supporting{
+	margin-top:20%;
+	padding:50px 15px 0px 15px;
+}
+
+
+.supporting .nav li a{
+	color:black;
+}
+
+.supporting .nav .active a{
+	color:white;
+	background-color:gray;
+}
+
+.supporting .nav .active a:hover{
+	color:white;
+	background-color:black;
+}
+
+.main .container .row .col-md-4{
+	margin:auto 0;
+	padding:0 5px 5px 5px;
+}
+.main .container .row .col-md-4 .thumbnail{
+	border: none;
+	text-align:center;
+}
+
+.thumbnail{
+	padding:0;	
+}
+
+
+.thumbnail img{
+  width:100%;
+  display:block;
+  opacity:0.2;
+  cursor: pointer;
+}
+
+img.selected{
+  width:100%;
+  display:block;
+  opacity:1.0;
+
+}
+
+
+.footer{
+	color:#fff;
+	min-height: 200px;
+	padding:60px 0;
+	background: black;
+}
+
+.footer ul{
+	margin: 0;
+	padding:0;
+}
+.footer ul li{
+	display: inline-block;
+	padding-right: 50px;
+}
