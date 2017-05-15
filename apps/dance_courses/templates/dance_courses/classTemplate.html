@@ -1,6 +1,8 @@
       <hr>
       <h2>{{danceClass.name}}</h2>
-      <iframe width="560" height="315" src="{{danceClass.url}}" frameborder="0" allowfullscreen></iframe>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="560" height="315" src="{{danceClass.url}}" frameborder="0" allowfullscreen></iframe>
+      </div>
       <h4>Leave a Comment:</h4>
       <form role="form" id='commentForm'>
       {%csrf_token%}

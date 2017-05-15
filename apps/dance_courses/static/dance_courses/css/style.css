@@ -58,6 +58,9 @@
   .carousel-indicators li.active {
       background-color: #f4511e;
   }
+
+
+
   .item h4 {
       font-size: 19px;
       line-height: 1.375em;
@@ -125,6 +128,9 @@
 
   #navLogo{
     zoom:13%;
+    max-width: 100%;
+    height: auto;
+
   }
 
   #loginLink , #registerLink{
